@@ -42,7 +42,10 @@
         </tfoot>
     </table>
 
-    <a asp-controller="Turtles" asp-action="Index" class="btn btn-outline-secondary">Continue Shopping</a>
+    <div class="d-flex justify-content-between">
+        <a asp-controller="Turtles" asp-action="Index" class="btn btn-outline-secondary">Continue Shopping</a>
+        <a asp-controller="Orders" asp-action="Checkout" class="btn btn-success">Proceed to Checkout</a>
+    </div>
 }
 else
 {

@@ -1,42 +1,30 @@
-using Lumivate.TurtleStore.Models;
+using Lumivate.TurtleStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
 {
     public class CartController : Controller
     {
-        private static readonly List<CartItem> _cartItems = new List<CartItem>();
+        private readonly ICartService _cartService;
+
+        public CartController(ICartService cartService)
+        {
+            _cartService = cartService;
+        }
 
         // GET: /Cart
         public IActionResult Index()
         {
-            ViewBag.Total = _cartItems.Sum(c => (c.Turtle?.Price ?? 0) * c.Quantity);
-            return View(_cartItems);
+            var items = _cartService.GetCartItems();
+            ViewBag.Total = _cartService.GetCartTotal();
+            return View(items);
         }
 
         // POST: /Cart/Add/5
         [HttpPost]
         public IActionResult Add(int id)
         {
-            var existingItem = _cartItems.FirstOrDefault(c => c.TurtleId == id);
-            if (existingItem != null)
-            {
-                existingItem.Quantity++;
-            }
-            else
-            {
-                var turtle = TurtlesController.GetTurtleById(id);
-                if (turtle != null)
-                {
-                    _cartItems.Add(new CartItem
-                    {
-                        Id = _cartItems.Count + 1,
-                        TurtleId = id,
-                        Turtle = turtle,
-                        Quantity = 1
-                    });
-                }
-            }
+            _cartService.AddToCart(id);
             return RedirectToAction("Index");
         }
 
@@ -44,11 +32,7 @@ namespace Lumivate.TurtleStore.Controllers
         [HttpPost]
         public IActionResult Remove(int id)
         {
-            var item = _cartItems.FirstOrDefault(c => c.TurtleId == id);
-            if (item != null)
-            {
-                _cartItems.Remove(item);
-            }
+            _cartService.RemoveFromCart(id);
             return RedirectToAction("Index");
         }
     }
