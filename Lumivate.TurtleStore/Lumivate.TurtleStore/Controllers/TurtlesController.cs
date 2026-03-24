@@ -5,7 +5,6 @@ namespace Lumivate.TurtleStore.Controllers
 {
     public class TurtlesController : Controller
     {
-        // For now, we use a static list. Later we will move this to a service.
         private static readonly List<Turtle> _turtles = new List<Turtle>
         {
             new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Description = "A friendly and active turtle who loves basking under the heat lamp. Great for beginners!", Price = 29.99m, ImageUrl = "/images/turtle1.png", IsAvailable = true },
@@ -16,11 +15,13 @@ namespace Lumivate.TurtleStore.Controllers
             new Turtle { Id = 6, Name = "Bubbles", Species = "Mississippi Map Turtle", Description = "Loves swimming and is very entertaining to watch in the water. A great aquatic companion.", Price = 34.99m, ImageUrl = "/images/turtle6.png", IsAvailable = true }
         };
 
+        public static List<Turtle> GetAllTurtles() => _turtles;
+        public static Turtle? GetTurtleById(int id) => _turtles.FirstOrDefault(t => t.Id == id);
+
         // GET: /Turtles
         public IActionResult Index()
         {
-            var turtles = _turtles;
-            return View(turtles);
+            return View(_turtles);
         }
 
         // GET: /Turtles/Details/5

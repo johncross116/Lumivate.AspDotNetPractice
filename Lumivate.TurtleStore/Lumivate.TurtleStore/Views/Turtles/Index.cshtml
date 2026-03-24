@@ -18,15 +18,21 @@
                     <p class="card-text"><strong>@turtle.Price.ToString("C")</strong></p>
                     @if (turtle.IsAvailable)
                     {
-                        <span class="badge bg-success">Available</span>
+                        <span class="badge bg-success mb-2">Available</span>
                     }
                     else
                     {
-                        <span class="badge bg-secondary">Sold Out</span>
+                        <span class="badge bg-secondary mb-2">Sold Out</span>
                     }
                 </div>
                 <div class="card-footer">
                     <a asp-action="Details" asp-route-id="@turtle.Id" class="btn btn-outline-primary btn-sm">View Details</a>
+                    @if (turtle.IsAvailable)
+                    {
+                        <form asp-controller="Cart" asp-action="Add" asp-route-id="@turtle.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>
