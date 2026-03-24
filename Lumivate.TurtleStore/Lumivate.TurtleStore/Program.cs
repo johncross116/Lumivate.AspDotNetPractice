@@ -1,3 +1,5 @@
+using Lumivate.TurtleStore.Services;
+
 namespace Lumivate.TurtleStore
 {
     public class Program
@@ -8,6 +10,11 @@ namespace Lumivate.TurtleStore
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Register application services with Dependency Injection
+            builder.Services.AddSingleton<ITurtleService, TurtleService>();
+            builder.Services.AddSingleton<ICartService, CartService>();
+            builder.Services.AddSingleton<IOrderService, OrderService>();
 
             var app = builder.Build();
 
