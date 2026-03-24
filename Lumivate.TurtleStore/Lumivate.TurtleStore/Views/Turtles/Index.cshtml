@@ -1,0 +1,34 @@
+@model List<Lumivate.TurtleStore.Models.Turtle>
+@{
+    ViewData["Title"] = "Browse Turtles";
+}
+
+<h1>Browse Our Turtles</h1>
+<p>Find the perfect shelled friend for your home.</p>
+
+<div class="row">
+    @foreach (var turtle in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@turtle.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@turtle.Species</h6>
+                    <p class="card-text">@turtle.Description</p>
+                    <p class="card-text"><strong>@turtle.Price.ToString("C")</strong></p>
+                    @if (turtle.IsAvailable)
+                    {
+                        <span class="badge bg-success">Available</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Sold Out</span>
+                    }
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Details" asp-route-id="@turtle.Id" class="btn btn-outline-primary btn-sm">View Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
