@@ -1,0 +1,42 @@
+@* TODO-checkpoint-2: Add the @model directive for TurtleViewModel *@
+@* Example: @model Lumivate.TurtleStore.Models.TurtleViewModel *@
+
+@{
+    ViewData["Title"] = "Our Turtles";
+}
+
+<h1>Our Turtles</h1>
+<p>Browse our selection of friendly turtles looking for a new home!</p>
+
+@* TODO-checkpoint-2: Add a table or card layout to display the list of turtles *@
+@* Loop through Model.Turtles using a foreach loop in Razor: *@
+@*
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Age</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var turtle in Model.Turtles)
+            {
+                <tr>
+                    <td>@turtle.Name</td>
+                    <td>@turtle.Species</td>
+                    <td>@turtle.Age</td>
+                    <td>$@turtle.Price</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@turtle.Id" class="btn btn-info btn-sm">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+*@
+
+@* TODO-checkpoint-3: Add a link to the Create page *@
+@* <a asp-action="Create" class="btn btn-primary">Add New Turtle</a> *@

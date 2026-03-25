@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Lumivate.TurtleStore</title>
+    <title>@ViewData["Title"] - Turtle Store</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -11,6 +11,14 @@
 </head>
 <body>
     <header>
+        @* TODO-checkpoint-1: Update the navbar brand text below from "Lumivate.TurtleStore" to "Turtle Store" *@
+        @* TODO-checkpoint-1: Add a new nav link for "Turtles" that points to the Turtles controller's Index action *@
+        @* Add this inside the <ul> after the Home nav item: *@
+        @*
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Turtles" asp-action="Index">Turtles</a>
+            </li>
+        *@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lumivate.TurtleStore</a>
@@ -39,6 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
+            @* TODO-checkpoint-1: Update the footer text below from "Lumivate.TurtleStore" to "Turtle Store" *@
             &copy; 2026 - Lumivate.TurtleStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

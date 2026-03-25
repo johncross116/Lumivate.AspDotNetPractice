@@ -1,0 +1,25 @@
+@* TODO-checkpoint-3: Add the @model directive for a single Turtle *@
+@* @model Lumivate.TurtleStore.Models.Turtle *@
+
+@{
+    ViewData["Title"] = "Turtle Details";
+}
+
+<h1>Turtle Details</h1>
+
+@* TODO-checkpoint-3: Display the turtle's details *@
+@* Use the Model properties to show each field. For example: *@
+@*
+    <div class="card" style="width: 24rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">
+                <strong>Species:</strong> @Model.Species <br />
+                <strong>Age:</strong> @Model.Age years <br />
+                <strong>Price:</strong> $@Model.Price <br />
+                <strong>Description:</strong> @Model.Description
+            </p>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+*@
