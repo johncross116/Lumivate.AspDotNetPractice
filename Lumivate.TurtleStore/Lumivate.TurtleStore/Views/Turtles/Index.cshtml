@@ -1,5 +1,7 @@
-@* TODO-checkpoint-2: Add the @model directive for TurtleViewModel *@
-@* Example: @model Lumivate.TurtleStore.Models.TurtleViewModel *@
+@* TODO-checkpoint-1: Add the @model directive for a list of turtles *@
+@* For checkpoint 1, use: @model IEnumerable<Lumivate.TurtleStore.Models.Turtle> *@
+@* TODO-checkpoint-2: Refactor the @model directive to use TurtleViewModel instead *@
+@* @model Lumivate.TurtleStore.Models.TurtleViewModel *@
 
 @{
     ViewData["Title"] = "Our Turtles";
@@ -8,27 +10,27 @@
 <h1>Our Turtles</h1>
 <p>Browse our selection of friendly turtles looking for a new home!</p>
 
-@* TODO-checkpoint-2: Add a table or card layout to display the list of turtles *@
-@* Loop through Model.Turtles using a foreach loop in Razor: *@
+@* TODO-checkpoint-1: Add a table to display the list of turtles *@
+@* Loop through the model using a foreach loop in Razor: *@
 @*
     <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Species</th>
-                <th>Age</th>
                 <th>Price</th>
+                <th>Available</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var turtle in Model.Turtles)
+            @foreach (var turtle in Model)
             {
                 <tr>
                     <td>@turtle.Name</td>
                     <td>@turtle.Species</td>
-                    <td>@turtle.Age</td>
                     <td>$@turtle.Price</td>
+                    <td>@(turtle.IsAvailable ? "Yes" : "No")</td>
                     <td>
                         <a asp-action="Details" asp-route-id="@turtle.Id" class="btn btn-info btn-sm">Details</a>
                     </td>
@@ -36,6 +38,17 @@
             }
         </tbody>
     </table>
+*@
+
+@* TODO-checkpoint-2: After refactoring to TurtleViewModel, update the foreach to use Model.Turtles *@
+@* Also add an "Add to Cart" button for each turtle in the table: *@
+@*
+    <td>
+        <form asp-controller="Cart" asp-action="Add" method="post">
+            <input type="hidden" name="turtleId" value="@turtle.Id" />
+            <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+        </form>
+    </td>
 *@
 
 @* TODO-checkpoint-3: Add a link to the Create page *@

@@ -60,8 +60,8 @@
 //        {
 //            Name = "Test Turtle",
 //            Species = "Test Species",
-//            Age = 1,
-//            Price = 9.99m
+//            Price = 9.99m,
+//            IsAvailable = true
 //        };
 //
 //        // Act

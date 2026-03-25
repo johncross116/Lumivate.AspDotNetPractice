@@ -15,8 +15,8 @@
             <h5 class="card-title">@Model.Name</h5>
             <p class="card-text">
                 <strong>Species:</strong> @Model.Species <br />
-                <strong>Age:</strong> @Model.Age years <br />
                 <strong>Price:</strong> $@Model.Price <br />
+                <strong>Available:</strong> @(Model.IsAvailable ? "Yes" : "No") <br />
                 <strong>Description:</strong> @Model.Description
             </p>
             <a asp-action="Index" class="btn btn-secondary">Back to List</a>

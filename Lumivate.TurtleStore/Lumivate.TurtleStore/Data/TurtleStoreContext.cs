@@ -17,9 +17,9 @@ namespace Lumivate.TurtleStore.Data
     //      protected override void OnModelCreating(ModelBuilder modelBuilder)
     //      {
     //          modelBuilder.Entity<Turtle>().HasData(
-    //              new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Age = 3, Price = 29.99m, Description = "A friendly and curious turtle." },
-    //              new Turtle { Id = 2, Name = "Tank", Species = "Box Turtle", Age = 5, Price = 49.99m, Description = "A sturdy and calm companion." },
-    //              new Turtle { Id = 3, Name = "Speedy", Species = "Painted Turtle", Age = 2, Price = 24.99m, Description = "Surprisingly quick for a turtle!" }
+    //              new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Price = 29.99m, Description = "A friendly and curious turtle.", IsAvailable = true },
+    //              new Turtle { Id = 2, Name = "Tank", Species = "Box Turtle", Price = 49.99m, Description = "A sturdy and calm companion.", IsAvailable = true },
+    //              new Turtle { Id = 3, Name = "Speedy", Species = "Painted Turtle", Price = 24.99m, Description = "Surprisingly quick for a turtle!", IsAvailable = true }
     //          );
     //      }
 }
