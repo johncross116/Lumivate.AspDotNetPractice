@@ -1,56 +1,12 @@
-@model List<Lumivate.TurtleStore.Models.CartItem>
 @{
     ViewData["Title"] = "Shopping Cart";
 }
 
 <h1>Shopping Cart</h1>
 
-@if (Model.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Turtle</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Turtle?.Name</td>
-                    <td>@item.Turtle?.Price.ToString("C")</td>
-                    <td>@item.Quantity</td>
-                    <td>@((item.Turtle?.Price * item.Quantity)?.ToString("C"))</td>
-                    <td>
-                        <form asp-action="Remove" asp-route-id="@item.TurtleId" method="post">
-                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-end"><strong>Total:</strong></td>
-                <td><strong>@ViewBag.Total.ToString("C")</strong></td>
-                <td></td>
-            </tr>
-        </tfoot>
-    </table>
-
-    <div class="d-flex justify-content-between">
-        <a asp-controller="Turtles" asp-action="Index" class="btn btn-outline-secondary">Continue Shopping</a>
-        <a asp-controller="Orders" asp-action="Checkout" class="btn btn-success">Proceed to Checkout</a>
-    </div>
-}
-else
-{
-    <div class="alert alert-info mt-3">
-        <p>Your cart is empty.</p>
-        <a asp-controller="Turtles" asp-action="Index" class="btn btn-success">Browse Turtles</a>
-    </div>
-}
+<!-- TODO (Module 3): Add a @model directive for List<Lumivate.TurtleStore.Models.CartItem> -->
+<!-- TODO (Module 3): If the cart has items, display them in a table -->
+<!--   Each row should show: Turtle Name, Price, Quantity, Subtotal, and a Remove button -->
+<!-- TODO (Module 3): Show the cart total using @ViewBag.Total -->
+<!-- TODO (Module 3): Add a "Continue Shopping" link and a "Proceed to Checkout" link -->
+<!-- TODO (Module 3): If the cart is empty, show a message and a link to browse turtles -->

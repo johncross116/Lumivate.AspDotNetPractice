@@ -2,11 +2,13 @@ namespace Lumivate.TurtleStore.Models
 {
     public class OrderItem
     {
-        public int Id { get; set; }
-        public int OrderId { get; set; }
-        public int TurtleId { get; set; }
-        public string TurtleName { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
+        // TODO (Module 4): Add properties for the OrderItem model
+        // You will need:
+        //   - int Id
+        //   - int OrderId
+        //   - int TurtleId
+        //   - string TurtleName
+        //   - decimal Price
+        //   - int Quantity
     }
 }

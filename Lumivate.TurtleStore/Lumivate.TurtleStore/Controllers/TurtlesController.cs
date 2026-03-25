@@ -1,33 +1,25 @@
-using Lumivate.TurtleStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
 {
     public class TurtlesController : Controller
     {
-        private readonly ITurtleService _turtleService;
+        // TODO (Module 2): Create the Index action
+        // 1. Create a static list of Turtle objects with sample data
+        //    (you can hard-code 3-5 turtles with Name, Species, Description, Price, etc.)
+        // 2. Return View(turtles) to pass the list to the view
+        //
+        // Example:
+        //   public IActionResult Index()
+        //   {
+        //       var turtles = new List<Models.Turtle> { ... };
+        //       return View(turtles);
+        //   }
 
-        public TurtlesController(ITurtleService turtleService)
-        {
-            _turtleService = turtleService;
-        }
-
-        // GET: /Turtles
-        public IActionResult Index()
-        {
-            var turtles = _turtleService.GetAllTurtles();
-            return View(turtles);
-        }
-
-        // GET: /Turtles/Details/5
-        public IActionResult Details(int id)
-        {
-            var turtle = _turtleService.GetTurtleById(id);
-            if (turtle == null)
-            {
-                return NotFound();
-            }
-            return View(turtle);
-        }
+        // TODO (Module 2): Create the Details action
+        // 1. Accept an int id parameter
+        // 2. Find the matching turtle from your list
+        // 3. If not found, return NotFound()
+        // 4. Otherwise, return View(turtle)
     }
 }

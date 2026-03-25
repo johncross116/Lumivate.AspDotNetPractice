@@ -1,29 +1,11 @@
-@model Lumivate.TurtleStore.Models.Turtle
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = "Turtle Details";
 }
 
-<div class="row mt-3">
-    <div class="col-md-8">
-        <h1>@Model.Name</h1>
-        <h4 class="text-muted">@Model.Species</h4>
-        <hr />
-        <p>@Model.Description</p>
-        <h3>@Model.Price.ToString("C")</h3>
+<h1>Turtle Details</h1>
 
-        @if (Model.IsAvailable)
-        {
-            <span class="badge bg-success mb-3">Available</span>
-            <br />
-            <form asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id" method="post" class="d-inline">
-                <button type="submit" class="btn btn-success">Add to Cart</button>
-            </form>
-        }
-        else
-        {
-            <span class="badge bg-secondary mb-3">Sold Out</span>
-        }
-
-        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Back to Browse</a>
-    </div>
-</div>
+<!-- TODO (Module 2): Add a @model directive for Lumivate.TurtleStore.Models.Turtle -->
+<!-- TODO (Module 2): Display the turtle's Name, Species, Description, and Price -->
+<!-- TODO (Module 2): Show availability status -->
+<!-- TODO (Module 3): Add an "Add to Cart" button for available turtles -->
+<!-- TODO (Module 2): Add a "Back to Browse" link -->

@@ -2,9 +2,11 @@ namespace Lumivate.TurtleStore.Models
 {
     public class CartItem
     {
-        public int Id { get; set; }
-        public int TurtleId { get; set; }
-        public Turtle? Turtle { get; set; }
-        public int Quantity { get; set; } = 1;
+        // TODO (Module 3): Add properties for the CartItem model
+        // You will need:
+        //   - int Id
+        //   - int TurtleId
+        //   - Turtle? Turtle  (navigation property)
+        //   - int Quantity (default to 1)
     }
 }
