@@ -6,7 +6,7 @@ namespace Lumivate.TurtleStore.Models
     //   - Id (int)
     //   - Name (string)
     //   - Species (string)
-    //   - Description (string?)
+    //   - Description (string?) // Notice the ? which makes this nullable (it is optional)
     //   - Price (decimal)
     //   - IsAvailable (bool)
 }
