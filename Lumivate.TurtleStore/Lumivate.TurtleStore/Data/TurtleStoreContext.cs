@@ -5,7 +5,8 @@
 namespace Lumivate.TurtleStore.Data
 {
 	// TODO-checkpoint-3: Create the TurtleStoreContext class
-	// This class should inherit from DbContext.
+	// This class should inherit from DbContext, ie...
+	//      public class TurtleStoreContext : DbContext { }
 	//
 	// 1. Add a constructor that accepts DbContextOptions<TurtleStoreContext> and passes it to the base class, ie...
 	//      public TurtleStoreContext(DbContextOptions<TurtleStoreContext> options) : base(options) { }
@@ -15,7 +16,7 @@ namespace Lumivate.TurtleStore.Data
 	//      public DbSet<Order> Orders { get; set; }
 	//      public DbSet<OrderItem> OrderItems { get; set; }
 	//
-	// 3. Override OnModelCreating to seed sample data:
+	// 3. Override OnModelCreating to seed sample data. Uncomment the following...
 	//      protected override void OnModelCreating(ModelBuilder modelBuilder)
 	//      {
 	//          modelBuilder.Entity<Turtle>().HasData(
