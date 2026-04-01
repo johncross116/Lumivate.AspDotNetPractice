@@ -84,8 +84,10 @@
 //        Assert.Null(service.GetTurtleById(1));
 //    }
 
+using Lumivate.TurtleStore.Data;
 using Lumivate.TurtleStore.Models;
 using Lumivate.TurtleStore.Services;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace Lumivate.TurtleStore.Tests
@@ -94,25 +96,50 @@ namespace Lumivate.TurtleStore.Tests
 
     public class TurtleServiceTests
     {
+        private TurtleStoreContext CreateContext(string dbName)
+        {
+            var options = new DbContextOptionsBuilder<TurtleStoreContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+            var context = new TurtleStoreContext(options);
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+            return context;
+        }
+
+        private TurtleStoreContext CreateSeededContext(string dbName)
+        {
+            var context = CreateContext(dbName);
+            context.Turtles.AddRange(
+                new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Price = 29.99m, Description = "A friendly and curious turtle.", IsAvailable = true },
+                new Turtle { Id = 2, Name = "Tank", Species = "Box Turtle", Price = 49.99m, Description = "A sturdy and calm companion.", IsAvailable = true },
+                new Turtle { Id = 3, Name = "Speedy", Species = "Painted Turtle", Price = 24.99m, Description = "Surprisingly quick for a turtle!", IsAvailable = true }
+            );
+            context.SaveChanges();
+            return context;
+        }
+
         [Fact]
         public void GetAllTurtles_ReturnsAllTurtles()
         {
             // Arrange
-            var service = new TurtleService();
+            var context = CreateSeededContext("GetAllTurtles");
+            var service = new TurtleService(context);
 
             // Act
             var result = service.GetAllTurtles();
 
             // Assert
             Assert.NotNull(result);
-            Assert.True(result.Count > 0);
+            Assert.Equal(3, result.Count);
         }
 
         [Fact]
         public void GetTurtleById_WithValidId_ReturnsTurtle()
         {
             // Arrange
-            var service = new TurtleService();
+            var context = CreateSeededContext("GetTurtleById_Valid");
+            var service = new TurtleService(context);
 
             // Act
             var result = service.GetTurtleById(1);
@@ -126,7 +153,8 @@ namespace Lumivate.TurtleStore.Tests
         public void GetTurtleById_WithInvalidId_ReturnsNull()
         {
             // Arrange
-            var service = new TurtleService();
+            var context = CreateSeededContext("GetTurtleById_Invalid");
+            var service = new TurtleService(context);
 
             // Act
             var result = service.GetTurtleById(999);
@@ -139,7 +167,8 @@ namespace Lumivate.TurtleStore.Tests
         public void AddTurtle_IncreasesCount()
         {
             // Arrange
-            var service = new TurtleService();
+            var context = CreateSeededContext("AddTurtle");
+            var service = new TurtleService(context);
             var initialCount = service.GetAllTurtles().Count;
             var newTurtle = new Turtle
             {
@@ -160,7 +189,8 @@ namespace Lumivate.TurtleStore.Tests
         public void DeleteTurtle_RemovesTurtle()
         {
             // Arrange
-            var service = new TurtleService();
+            var context = CreateSeededContext("DeleteTurtle");
+            var service = new TurtleService(context);
 
             // Act
             service.DeleteTurtle(1);

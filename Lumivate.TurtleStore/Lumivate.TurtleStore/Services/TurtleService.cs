@@ -1,4 +1,6 @@
+using Lumivate.TurtleStore.Data;
 using Lumivate.TurtleStore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lumivate.TurtleStore.Services
 {
@@ -21,32 +23,32 @@ namespace Lumivate.TurtleStore.Services
 
     public class TurtleService : ITurtleService
     {
-        private static List<Turtle> _turtles = new List<Turtle>
+        private readonly TurtleStoreContext _context;
+
+        public TurtleService(TurtleStoreContext context)
         {
-            new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Price = 29.99m, Description = "A friendly and curious turtle.", IsAvailable = true },
-            new Turtle { Id = 2, Name = "Tank", Species = "Box Turtle", Price = 49.99m, Description = "A sturdy and calm companion.", IsAvailable = true },
-            new Turtle { Id = 3, Name = "Speedy", Species = "Painted Turtle", Price = 24.99m, Description = "Surprisingly quick for a turtle!", IsAvailable = true }
-        };
+            _context = context;
+        }
 
         public List<Turtle> GetAllTurtles()
         {
-            return _turtles;
+            return _context.Turtles.ToList();
         }
 
         public Turtle? GetTurtleById(int id)
         {
-            return _turtles.FirstOrDefault(t => t.Id == id);
+            return _context.Turtles.FirstOrDefault(t => t.Id == id);
         }
 
         public void AddTurtle(Turtle turtle)
         {
-            turtle.Id = _turtles.Any() ? _turtles.Max(t => t.Id) + 1 : 1;
-            _turtles.Add(turtle);
+            _context.Turtles.Add(turtle);
+            _context.SaveChanges();
         }
 
         public void UpdateTurtle(Turtle turtle)
         {
-            var existing = _turtles.FirstOrDefault(t => t.Id == turtle.Id);
+            var existing = _context.Turtles.FirstOrDefault(t => t.Id == turtle.Id);
             if (existing != null)
             {
                 existing.Name = turtle.Name;
@@ -54,15 +56,17 @@ namespace Lumivate.TurtleStore.Services
                 existing.Description = turtle.Description;
                 existing.Price = turtle.Price;
                 existing.IsAvailable = turtle.IsAvailable;
+                _context.SaveChanges();
             }
         }
 
         public void DeleteTurtle(int id)
         {
-            var turtle = _turtles.FirstOrDefault(t => t.Id == id);
+            var turtle = _context.Turtles.FirstOrDefault(t => t.Id == id);
             if (turtle != null)
             {
-                _turtles.Remove(turtle);
+                _context.Turtles.Remove(turtle);
+                _context.SaveChanges();
             }
         }
     }

@@ -75,8 +75,10 @@
 //        Assert.Empty(items);
 //    }
 
+using Lumivate.TurtleStore.Data;
 using Lumivate.TurtleStore.Models;
 using Lumivate.TurtleStore.Services;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace Lumivate.TurtleStore.Tests
@@ -85,12 +87,28 @@ namespace Lumivate.TurtleStore.Tests
 
     public class CartServiceTests
     {
+        private TurtleStoreContext CreateSeededContext(string dbName)
+        {
+            var options = new DbContextOptionsBuilder<TurtleStoreContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+            var context = new TurtleStoreContext(options);
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+            context.Turtles.AddRange(
+                new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Price = 29.99m, Description = "A friendly and curious turtle.", IsAvailable = true },
+                new Turtle { Id = 2, Name = "Tank", Species = "Box Turtle", Price = 49.99m, Description = "A sturdy and calm companion.", IsAvailable = true }
+            );
+            context.SaveChanges();
+            return context;
+        }
+
         [Fact]
         public void AddToCart_AddsItemToCart()
         {
             // Arrange
-            var turtleService = new TurtleService();
-            var cartService = new CartService(turtleService);
+            var context = CreateSeededContext("Cart_AddToCart");
+            var cartService = new CartService(context);
 
             // Act
             cartService.AddToCart(1);
@@ -105,8 +123,8 @@ namespace Lumivate.TurtleStore.Tests
         public void AddToCart_SameTurtleTwice_IncreasesQuantity()
         {
             // Arrange
-            var turtleService = new TurtleService();
-            var cartService = new CartService(turtleService);
+            var context = CreateSeededContext("Cart_SameTurtleTwice");
+            var cartService = new CartService(context);
 
             // Act
             cartService.AddToCart(1);
@@ -122,8 +140,8 @@ namespace Lumivate.TurtleStore.Tests
         public void RemoveFromCart_RemovesItem()
         {
             // Arrange
-            var turtleService = new TurtleService();
-            var cartService = new CartService(turtleService);
+            var context = CreateSeededContext("Cart_RemoveFromCart");
+            var cartService = new CartService(context);
             cartService.AddToCart(1);
 
             // Act
@@ -138,8 +156,8 @@ namespace Lumivate.TurtleStore.Tests
         public void ClearCart_RemovesAllItems()
         {
             // Arrange
-            var turtleService = new TurtleService();
-            var cartService = new CartService(turtleService);
+            var context = CreateSeededContext("Cart_ClearCart");
+            var cartService = new CartService(context);
             cartService.AddToCart(1);
             cartService.AddToCart(2);
 

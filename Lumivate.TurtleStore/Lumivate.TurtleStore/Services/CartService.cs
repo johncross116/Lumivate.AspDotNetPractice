@@ -1,3 +1,4 @@
+using Lumivate.TurtleStore.Data;
 using Lumivate.TurtleStore.Models;
 
 namespace Lumivate.TurtleStore.Services
@@ -22,11 +23,11 @@ namespace Lumivate.TurtleStore.Services
     public class CartService : ICartService
     {
         private static List<CartItem> _cartItems = new List<CartItem>();
-        private readonly ITurtleService _turtleService;
+        private readonly TurtleStoreContext _context;
 
-        public CartService(ITurtleService turtleService)
+        public CartService(TurtleStoreContext context)
         {
-            _turtleService = turtleService;
+            _context = context;
         }
 
         public List<CartItem> GetCartItems()
@@ -43,7 +44,7 @@ namespace Lumivate.TurtleStore.Services
             }
             else
             {
-                var turtle = _turtleService.GetTurtleById(turtleId);
+                var turtle = _context.Turtles.FirstOrDefault(t => t.Id == turtleId);
                 if (turtle != null)
                 {
                     _cartItems.Add(new CartItem

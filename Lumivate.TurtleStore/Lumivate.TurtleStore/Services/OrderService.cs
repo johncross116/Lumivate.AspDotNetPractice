@@ -1,4 +1,6 @@
+using Lumivate.TurtleStore.Data;
 using Lumivate.TurtleStore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lumivate.TurtleStore.Services
 {
@@ -19,37 +21,47 @@ namespace Lumivate.TurtleStore.Services
 
     public class OrderService : IOrderService
     {
-        private static List<Order> _orders = new List<Order>();
+        private readonly TurtleStoreContext _context;
+
+        public OrderService(TurtleStoreContext context)
+        {
+            _context = context;
+        }
 
         public Order PlaceOrder(string customerName, List<CartItem> items)
         {
             var order = new Order
             {
-                Id = _orders.Any() ? _orders.Max(o => o.Id) + 1 : 1,
                 CustomerName = customerName,
                 OrderDate = DateTime.Now,
                 Items = items.Select(ci => new OrderItem
                 {
                     TurtleId = ci.TurtleId,
-                    Turtle = ci.Turtle,
                     Quantity = ci.Quantity,
                     UnitPrice = ci.Turtle.Price
                 }).ToList(),
                 Total = items.Sum(ci => ci.Turtle.Price * ci.Quantity)
             };
 
-            _orders.Add(order);
+            _context.Orders.Add(order);
+            _context.SaveChanges();
             return order;
         }
 
         public Order? GetOrderById(int id)
         {
-            return _orders.FirstOrDefault(o => o.Id == id);
+            return _context.Orders
+                .Include(o => o.Items)
+                    .ThenInclude(oi => oi.Turtle)
+                .FirstOrDefault(o => o.Id == id);
         }
 
         public List<Order> GetAllOrders()
         {
-            return _orders;
+            return _context.Orders
+                .Include(o => o.Items)
+                    .ThenInclude(oi => oi.Turtle)
+                .ToList();
         }
     }
 }
