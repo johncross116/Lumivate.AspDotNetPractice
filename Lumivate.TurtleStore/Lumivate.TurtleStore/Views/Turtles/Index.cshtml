@@ -3,12 +3,18 @@
 @* TODO-checkpoint-2: Refactor the @model directive to use TurtleViewModel instead *@
 @* @model Lumivate.TurtleStore.Models.TurtleViewModel *@
 
+@model Lumivate.TurtleStore.Models.TurtleViewModel
+
 @{
     ViewData["Title"] = "Our Turtles";
 }
 
 <h1>Our Turtles</h1>
 <p>Browse our selection of friendly turtles looking for a new home!</p>
+
+@* TODO-checkpoint-3: Add a link to the Create page *@
+@* <a asp-action="Create" class="btn btn-primary">Add New Turtle</a> *@
+<a asp-action="Create" class="btn btn-primary mb-3">Add New Turtle</a>
 
 @* TODO-checkpoint-1: Add a table to display the list of turtles *@
 @* Even though the code is provided, take some time to understand it! *@
@@ -53,5 +59,35 @@
     </td>
 *@
 
-@* TODO-checkpoint-3: Add a link to the Create page *@
-@* <a asp-action="Create" class="btn btn-primary">Add New Turtle</a> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var turtle in Model.Turtles)
+        {
+            <tr>
+                <td>@turtle.Name</td>
+                <td>@turtle.Species</td>
+                <td>$@turtle.Price</td>
+                <td>@(turtle.IsAvailable ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@turtle.Id" class="btn btn-info btn-sm">Details</a>
+                </td>
+                <td>
+                    <form asp-controller="Cart" asp-action="Add" method="post">
+                        <input type="hidden" name="turtleId" value="@turtle.Id" />
+                        <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

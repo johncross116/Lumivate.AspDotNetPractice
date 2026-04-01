@@ -1,6 +1,8 @@
 @* TODO-checkpoint-3: Add the @model directive for a single Turtle *@
 @* @model Lumivate.TurtleStore.Models.Turtle *@
 
+@model Lumivate.TurtleStore.Models.Turtle
+
 @{
     ViewData["Title"] = "Turtle Details";
 }
@@ -23,3 +25,16 @@
         </div>
     </div>
 *@
+
+<div class="card" style="width: 24rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">
+            <strong>Species:</strong> @Model.Species <br />
+            <strong>Price:</strong> $@Model.Price <br />
+            <strong>Available:</strong> @(Model.IsAvailable ? "Yes" : "No") <br />
+            <strong>Description:</strong> @Model.Description
+        </p>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

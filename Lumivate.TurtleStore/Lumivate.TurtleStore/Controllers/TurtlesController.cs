@@ -1,4 +1,5 @@
 using Lumivate.TurtleStore.Models;
+using Lumivate.TurtleStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
@@ -34,4 +35,48 @@ namespace Lumivate.TurtleStore.Controllers
 	// TODO-checkpoint-4: Refactor this controller to accept ITurtleService via constructor injection
 	//   - Remove direct database access
 	//   - Call _turtleService methods instead
+
+    public class TurtlesController : Controller
+    {
+        private readonly ITurtleService _turtleService;
+
+        public TurtlesController(ITurtleService turtleService)
+        {
+            _turtleService = turtleService;
+        }
+
+        public IActionResult Index()
+        {
+            var turtles = _turtleService.GetAllTurtles();
+            var viewModel = new TurtleViewModel { Turtles = turtles };
+            return View(viewModel);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var turtle = _turtleService.GetTurtleById(id);
+            if (turtle == null)
+            {
+                return NotFound();
+            }
+            return View(turtle);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Turtle turtle)
+        {
+            if (ModelState.IsValid)
+            {
+                _turtleService.AddTurtle(turtle);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(turtle);
+        }
+    }
 }

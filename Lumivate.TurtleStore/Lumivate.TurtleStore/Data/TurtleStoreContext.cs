@@ -2,6 +2,9 @@
 //   using Lumivate.TurtleStore.Models;
 //   using Microsoft.EntityFrameworkCore;
 
+using Lumivate.TurtleStore.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Lumivate.TurtleStore.Data
 {
 	// TODO-checkpoint-3: Create the TurtleStoreContext class
@@ -25,4 +28,22 @@ namespace Lumivate.TurtleStore.Data
 	//              new Turtle { Id = 3, Name = "Speedy", Species = "Painted Turtle", Price = 24.99m, Description = "Surprisingly quick for a turtle!", IsAvailable = true }
 	//          );
 	//      }
+
+    public class TurtleStoreContext : DbContext
+    {
+        public TurtleStoreContext(DbContextOptions<TurtleStoreContext> options) : base(options) { }
+
+        public DbSet<Turtle> Turtles { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Turtle>().HasData(
+                new Turtle { Id = 1, Name = "Shelly", Species = "Red-Eared Slider", Price = 29.99m, Description = "A friendly and curious turtle.", IsAvailable = true },
+                new Turtle { Id = 2, Name = "Tank", Species = "Box Turtle", Price = 49.99m, Description = "A sturdy and calm companion.", IsAvailable = true },
+                new Turtle { Id = 3, Name = "Speedy", Species = "Painted Turtle", Price = 24.99m, Description = "Surprisingly quick for a turtle!", IsAvailable = true }
+            );
+        }
+    }
 }

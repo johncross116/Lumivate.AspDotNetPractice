@@ -75,7 +75,80 @@
 //        Assert.Empty(items);
 //    }
 
+using Lumivate.TurtleStore.Models;
+using Lumivate.TurtleStore.Services;
+using Xunit;
+
 namespace Lumivate.TurtleStore.Tests
 {
     // TODO-checkpoint-5: Uncomment and complete the test class above
+
+    public class CartServiceTests
+    {
+        [Fact]
+        public void AddToCart_AddsItemToCart()
+        {
+            // Arrange
+            var turtleService = new TurtleService();
+            var cartService = new CartService(turtleService);
+
+            // Act
+            cartService.AddToCart(1);
+            var items = cartService.GetCartItems();
+
+            // Assert
+            Assert.Single(items);
+            Assert.Equal(1, items[0].TurtleId);
+        }
+
+        [Fact]
+        public void AddToCart_SameTurtleTwice_IncreasesQuantity()
+        {
+            // Arrange
+            var turtleService = new TurtleService();
+            var cartService = new CartService(turtleService);
+
+            // Act
+            cartService.AddToCart(1);
+            cartService.AddToCart(1);
+            var items = cartService.GetCartItems();
+
+            // Assert
+            Assert.Single(items);
+            Assert.Equal(2, items[0].Quantity);
+        }
+
+        [Fact]
+        public void RemoveFromCart_RemovesItem()
+        {
+            // Arrange
+            var turtleService = new TurtleService();
+            var cartService = new CartService(turtleService);
+            cartService.AddToCart(1);
+
+            // Act
+            cartService.RemoveFromCart(1);
+            var items = cartService.GetCartItems();
+
+            // Assert
+            Assert.Empty(items);
+        }
+
+        [Fact]
+        public void ClearCart_RemovesAllItems()
+        {
+            // Arrange
+            var turtleService = new TurtleService();
+            var cartService = new CartService(turtleService);
+            cartService.AddToCart(1);
+            cartService.AddToCart(2);
+
+            // Act
+            cartService.ClearCart();
+            var items = cartService.GetCartItems();
+
+            // Assert
+            Assert.Empty(items);
+        }
+    }
 }

@@ -18,6 +18,10 @@ namespace Lumivate.TurtleStore
             // builder.Services.AddScoped<ICartService, CartService>();
             // builder.Services.AddScoped<IOrderService, OrderService>();
 
+            builder.Services.AddScoped<Lumivate.TurtleStore.Services.ITurtleService, Lumivate.TurtleStore.Services.TurtleService>();
+            builder.Services.AddScoped<Lumivate.TurtleStore.Services.ICartService, Lumivate.TurtleStore.Services.CartService>();
+            builder.Services.AddScoped<Lumivate.TurtleStore.Services.IOrderService, Lumivate.TurtleStore.Services.OrderService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

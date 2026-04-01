@@ -1,4 +1,5 @@
 using Lumivate.TurtleStore.Models;
+using Lumivate.TurtleStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
@@ -25,4 +26,35 @@ namespace Lumivate.TurtleStore.Controllers
     // TODO-checkpoint-4: Refactor this controller to accept ICartService via constructor injection
     //   - Remove the static list
     //   - Call _cartService methods instead
+
+    public class CartController : Controller
+    {
+        private readonly ICartService _cartService;
+
+        public CartController(ICartService cartService)
+        {
+            _cartService = cartService;
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var items = _cartService.GetCartItems();
+            return View(items);
+        }
+
+        [HttpPost]
+        public IActionResult Add(int turtleId)
+        {
+            _cartService.AddToCart(turtleId);
+            return RedirectToAction("Index", "Turtles");
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int turtleId)
+        {
+            _cartService.RemoveFromCart(turtleId);
+            return RedirectToAction(nameof(Index));
+        }
+    }
 }

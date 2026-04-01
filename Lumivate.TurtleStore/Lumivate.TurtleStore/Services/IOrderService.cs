@@ -7,4 +7,11 @@ namespace Lumivate.TurtleStore.Services
     //   - Order PlaceOrder(string customerName, List<CartItem> items)
     //   - Order? GetOrderById(int id)
     //   - List<Order> GetAllOrders()
+
+    public interface IOrderService
+    {
+        Order PlaceOrder(string customerName, List<CartItem> items);
+        Order? GetOrderById(int id);
+        List<Order> GetAllOrders();
+    }
 }

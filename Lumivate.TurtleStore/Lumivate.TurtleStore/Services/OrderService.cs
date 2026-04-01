@@ -16,4 +16,40 @@ namespace Lumivate.TurtleStore.Services
 
     // TODO-checkpoint-4: After creating this class, register it in Program.cs:
     //   builder.Services.AddScoped<IOrderService, OrderService>();
+
+    public class OrderService : IOrderService
+    {
+        private static List<Order> _orders = new List<Order>();
+
+        public Order PlaceOrder(string customerName, List<CartItem> items)
+        {
+            var order = new Order
+            {
+                Id = _orders.Any() ? _orders.Max(o => o.Id) + 1 : 1,
+                CustomerName = customerName,
+                OrderDate = DateTime.Now,
+                Items = items.Select(ci => new OrderItem
+                {
+                    TurtleId = ci.TurtleId,
+                    Turtle = ci.Turtle,
+                    Quantity = ci.Quantity,
+                    UnitPrice = ci.Turtle.Price
+                }).ToList(),
+                Total = items.Sum(ci => ci.Turtle.Price * ci.Quantity)
+            };
+
+            _orders.Add(order);
+            return order;
+        }
+
+        public Order? GetOrderById(int id)
+        {
+            return _orders.FirstOrDefault(o => o.Id == id);
+        }
+
+        public List<Order> GetAllOrders()
+        {
+            return _orders;
+        }
+    }
 }
