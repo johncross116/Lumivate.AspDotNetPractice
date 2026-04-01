@@ -55,3 +55,12 @@
 
 @* TODO-checkpoint-3: Add a link to the Create page *@
 @* <a asp-action="Create" class="btn btn-primary">Add New Turtle</a> *@
+
+@* TODO-checkpoint-3: Add Edit and Delete links for each turtle in the table *@
+@* Add these inside the foreach loop, in a new <td> column: *@
+@*
+    <td>
+        <a asp-action="Edit" asp-route-id="@turtle.Id" class="btn btn-warning btn-sm">Edit</a>
+        <a asp-action="Delete" asp-route-id="@turtle.Id" class="btn btn-danger btn-sm">Delete</a>
+    </td>
+*@
