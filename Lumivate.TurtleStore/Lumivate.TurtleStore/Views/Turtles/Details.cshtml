@@ -20,6 +20,11 @@
                 <strong>Description:</strong> @Model.Description
             </p>
             <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
         </div>
     </div>
 *@
+
+@* TODO-checkpoint-3: Don't forget to add Edit and Delete links on this page! *@
+@* The code above includes them, but make sure you understand what asp-action and asp-route-id do. *@
