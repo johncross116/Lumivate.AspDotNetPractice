@@ -9,7 +9,7 @@ namespace Lumivate.TurtleStore
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            // TODO-checkpoint-3: Register the EF Core DbContext here
+            // TODO-checkpoint-3 part A: Register the EF Core DbContext here
             // builder.Services.AddDbContext<TurtleStoreContext>(options =>
             //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

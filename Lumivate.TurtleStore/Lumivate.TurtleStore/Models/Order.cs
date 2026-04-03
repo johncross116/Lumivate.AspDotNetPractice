@@ -1,6 +1,6 @@
 namespace Lumivate.TurtleStore.Models
 {
-    // TODO-checkpoint-3: Create the Order model class
+    // TODO-checkpoint-3 part G: Create the Order model class
     // This class represents a customer order.
     // Add the following properties:
     //   - Id (int)

@@ -1,10 +1,10 @@
-// TODO-checkpoint-3: Add the following using statements:
+// TODO-checkpoint-3 part A: Add the following using statements:
 //   using Lumivate.TurtleStore.Models;
 //   using Microsoft.EntityFrameworkCore;
 
 namespace Lumivate.TurtleStore.Data
 {
-	// TODO-checkpoint-3: Create the TurtleStoreContext class
+	// TODO-checkpoint-3 part A: Create the TurtleStoreContext class
 	// This class should inherit from DbContext, ie...
 	//      public class TurtleStoreContext : DbContext { }
 	//

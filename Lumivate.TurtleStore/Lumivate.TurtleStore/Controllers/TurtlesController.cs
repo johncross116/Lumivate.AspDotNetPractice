@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
 {
-	// TODO-checkpoint-3: Wire up the DbContext in the controller
+	// TODO-checkpoint-3 part B: Wire up the DbContext in the controller
 	//   This is called dependency injection (DI) - we will cover it in depth in the next module.
 	//   For now, just uncomment the following code. ASP.NET will automatically provide
 	//   the TurtleStoreContext because you registered it in Program.cs.
@@ -37,16 +37,16 @@ namespace Lumivate.TurtleStore.Controllers
 	//   - Create a TurtleViewModel and set its Turtles property to your list
 	//   - Return View(viewModel) instead of View(turtles)
 
-	// TODO-checkpoint-3: Update your Index action to use the DbContext
+	// TODO-checkpoint-3 part B: Update your Index action to use the DbContext
 	//   Replace your hardcoded list with:
 	//   var turtles = _context.Turtles.ToList();
 
-	// TODO-checkpoint-3: Add a Details(int id) action
+	// TODO-checkpoint-3 part C: Add a Details(int id) action
 	//   - Use the DbContext to fetch a single turtle by id
 	//   - If the turtle is not found, return NotFound()
 	//   - Otherwise return View(turtle)
 
-	// TODO-checkpoint-3: Add Create() GET and POST actions
+	// TODO-checkpoint-3 part D: Add Create() GET and POST actions
 	//   - GET: return an empty form view, ie View()
 	//   - POST: accept a Turtle model in the input parameters, save to database, redirect to Index (code below)
 	//   [HttpPost]
@@ -57,7 +57,7 @@ namespace Lumivate.TurtleStore.Controllers
 	//       return RedirectToAction(nameof(Index));
 	//   }
 
-	// TODO-checkpoint-3: Add Edit() GET and POST actions
+	// TODO-checkpoint-3 part E: Add Edit() GET and POST actions
 	//   - GET: fetch the turtle by id and return it to the form view
 	//   - POST: accept the updated Turtle model, save changes to the database, redirect to Index
 	//
@@ -89,7 +89,7 @@ namespace Lumivate.TurtleStore.Controllers
 	//       return RedirectToAction(nameof(Index));
 	//   }
 
-	// TODO-checkpoint-3: Add Delete() GET and POST actions
+	// TODO-checkpoint-3 part F: Add Delete() GET and POST actions
 	//   - GET: fetch the turtle by id and show a confirmation page
 	//   - POST: remove the turtle from the database and redirect to Index
 	//
