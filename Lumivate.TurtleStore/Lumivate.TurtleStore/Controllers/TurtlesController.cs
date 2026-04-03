@@ -3,6 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
 {
+	// TODO-checkpoint-3: Wire up the DbContext in the controller
+	//   This is called dependency injection (DI) - we will cover it in depth in the next module.
+	//   For now, just uncomment the following code. ASP.NET will automatically provide
+	//   the TurtleStoreContext because you registered it in Program.cs.
+	//
+	//   using Lumivate.TurtleStore.Data;
+	//
+	//   private readonly TurtleStoreContext _context;
+	//   public TurtlesController(TurtleStoreContext context)
+	//   {
+	//       _context = context;
+	//   }
+
+
 	// TODO-checkpoint-1: Create the TurtlesController class
 	// This controller should inherit from Controller.
 	// Add an Index() action that:
@@ -23,20 +37,6 @@ namespace Lumivate.TurtleStore.Controllers
 	//   - Create a TurtleViewModel and set its Turtles property to your list
 	//   - Return View(viewModel) instead of View(turtles)
 
-	// TODO-checkpoint-3: Wire up the DbContext in the controller
-	//   This is called dependency injection (DI) - we will cover it in depth in the next module.
-	//   For now, just uncomment the following code. ASP.NET will automatically provide
-	//   the TurtleStoreContext because you registered it in Program.cs.
-	//
-	//   using Lumivate.TurtleStore.Data;
-	//
-	//   private readonly TurtleStoreContext _context;
-	//
-	//   public TurtlesController(TurtleStoreContext context)
-	//   {
-	//       _context = context;
-	//   }
-
 	// TODO-checkpoint-3: Update your Index action to use the DbContext
 	//   Replace your hardcoded list with:
 	//   var turtles = _context.Turtles.ToList();
@@ -45,27 +45,10 @@ namespace Lumivate.TurtleStore.Controllers
 	//   - Use the DbContext to fetch a single turtle by id
 	//   - If the turtle is not found, return NotFound()
 	//   - Otherwise return View(turtle)
-	//
-	//   public IActionResult Details(int id)
-	//   {
-	//       var turtle = _context.Turtles.FirstOrDefault(t => t.Id == id);
-	//       if (turtle == null)
-	//       {
-	//           return NotFound();
-	//       }
-	//       return View(turtle);
-	//   }
 
 	// TODO-checkpoint-3: Add Create() GET and POST actions
-	//   - GET: return an empty form view
-	//   - POST: accept a Turtle model, save to database, redirect to Index
-	//
-	//   [HttpGet]
-	//   public IActionResult Create()
-	//   {
-	//       return View();
-	//   }
-	//
+	//   - GET: return an empty form view, ie View()
+	//   - POST: accept a Turtle model in the input parameters, save to database, redirect to Index (code below)
 	//   [HttpPost]
 	//   public IActionResult Create(Turtle turtle)
 	//   {
@@ -134,6 +117,6 @@ namespace Lumivate.TurtleStore.Controllers
 	//   }
 
 	// TODO-checkpoint-4: Refactor this controller to accept ITurtleService via constructor injection
-	//   - Remove direct database access
-	//   - Call _turtleService methods instead
+	//   - Remove direct database access, ie TurtleStoreContext
+	//   - Move all EF logic out and use _turtleService methods instead
 }
