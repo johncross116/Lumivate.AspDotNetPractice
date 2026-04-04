@@ -1,8 +1,29 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to TrackStack!</h1>
+    <p class="lead">Your personal jukebox. Browse artists and discover songs.</p>
+    <hr />
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3>Artists</h3>
+                    <p>Browse and manage your favorite artists.</p>
+                    <a asp-controller="Artists" asp-action="Index" class="btn btn-primary">View Artists</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3>Songs</h3>
+                    <p>Explore the full track list.</p>
+                    <a asp-controller="Songs" asp-action="Index" class="btn btn-primary">View Songs</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

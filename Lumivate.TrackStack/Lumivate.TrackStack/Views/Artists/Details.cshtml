@@ -1,0 +1,33 @@
+@* TODO: Add a @model directive for a single Artist *@
+@* Hint: @model Lumivate.TrackStack.Models.Artist *@
+
+@{
+    ViewData["Title"] = "Artist Details";
+}
+
+<h1>@* TODO: Display Model.Name here *@</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Artist Info</h5>
+        <dl class="row">
+            <dt class="col-sm-3">Genre</dt>
+            <dd class="col-sm-9">@* TODO: Display Model.Genre *@</dd>
+        </dl>
+    </div>
+</div>
+
+<h3>Songs by this Artist</h3>
+@* TODO: Check if Model.Songs is not null and has items *@
+@* If there are songs, display them in a table: *@
+@*   - Title *@
+@*   - Duration (you can display DurationSeconds, or format as mm:ss) *@
+@*   - A link to /Songs/Details for each song *@
+@* If there are no songs, display a message like "No songs found for this artist." *@
+
+<div class="mt-3">
+    @* TODO: Add Edit, Delete, and Back to List links *@
+    @* Hint: <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a> *@
+    @* Hint: <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a> *@
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

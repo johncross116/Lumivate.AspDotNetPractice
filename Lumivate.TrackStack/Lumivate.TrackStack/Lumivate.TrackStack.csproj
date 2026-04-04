@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <!-- TODO: These EF Core packages are needed for database access -->
+  <!-- Install these via NuGet Package Manager or uncomment below -->
+  <!--
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.*" />
+  </ItemGroup>
+  -->
+
 </Project>
