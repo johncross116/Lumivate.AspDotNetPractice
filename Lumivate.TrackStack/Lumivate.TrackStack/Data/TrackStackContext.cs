@@ -26,7 +26,7 @@ namespace Lumivate.TrackStack.Data
     //      Update-Database
 
     // =====================================================
-    // SEED DATA - Uncomment this inside OnModelCreating
+    // SEED DATA - Uncomment and place this inside OnModelCreating
     // =====================================================
     //
     // modelBuilder.Entity<Artist>().HasData(
