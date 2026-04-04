@@ -3,18 +3,25 @@ using Lumivate.TurtleStore.Models;
 namespace Lumivate.TurtleStore.Services
 {
     // TODO-checkpoint-4: Create the TurtleService class that implements ITurtleService
+    //   public class TurtleService : ITurtleService
     //
     // This service will contain the business logic for turtle operations.
     //
-    // For now, use a private static List<Turtle> as an in-memory data store.
-    // Initialize it with a few sample turtles in the constructor or as a field initializer.
+    // Inject the TurtleStoreContext into the constructor (just like TurtlesController has):
+    //   private readonly TurtleStoreContext _context;
+    //   public TurtleService(TurtleStoreContext context)
+    //   {
+    //       _context = context;
+    //   }
     //
-    // Implement all methods from ITurtleService:
-    //   - GetAllTurtles(): return the full list
-    //   - GetTurtleById(int id): return a single turtle using LINQ's FirstOrDefault
-    //   - AddTurtle(Turtle turtle): assign a new Id and add to the list
-    //   - UpdateTurtle(Turtle turtle): find existing turtle by Id and update its properties
-    //   - DeleteTurtle(int id): remove the turtle with the matching Id
+    // Then implement all methods from ITurtleService.
+    // The logic should be the same as what is currently in your controller
+    // where you pulled data from the DbContext:
+    //   - GetAllTurtles(): return _context.Turtles.ToList()
+    //   - GetTurtleById(int id): return _context.Turtles.FirstOrDefault(t => t.Id == id)
+    //   - AddTurtle(Turtle turtle): _context.Turtles.Add(turtle); _context.SaveChanges();
+    //   - UpdateTurtle(Turtle turtle): find existing by Id, update properties, SaveChanges()
+    //   - DeleteTurtle(int id): find by Id, Remove(), SaveChanges()
 
     // TODO-checkpoint-4: After creating this class, register it in Program.cs:
     //   builder.Services.AddScoped<ITurtleService, TurtleService>();

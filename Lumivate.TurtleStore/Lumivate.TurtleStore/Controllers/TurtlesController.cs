@@ -117,6 +117,7 @@ namespace Lumivate.TurtleStore.Controllers
 	//   }
 
 	// TODO-checkpoint-4: Refactor this controller to accept ITurtleService via constructor injection
-	//   - Remove direct database access, ie TurtleStoreContext
-	//   - Move all EF logic out and use _turtleService methods instead
+	//   - Replace TurtleStoreContext with ITurtleService in the constructor
+	//   - Move all EF/DbContext logic into TurtleService and use _turtleService methods instead
+	//   - Your controller will look so clean after this!
 }
