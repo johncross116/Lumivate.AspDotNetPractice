@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Lumivate.TrackStack/Lumivate.TrackStack.csproj" />
+  <!-- TODO: Add the test project to the solution -->
+  <!-- <Project Path="Lumivate.TrackStack.Tests/Lumivate.TrackStack.Tests.csproj" /> -->
+</Solution>

@@ -1,0 +1,33 @@
+@* TODO: Add a @model directive for a List of Artist *@
+@* Hint: @model List<Lumivate.TrackStack.Models.Artist> *@
+
+@{
+    ViewData["Title"] = "Artists";
+}
+
+<h1>Artists</h1>
+
+<p>
+    @* TODO: Add an anchor tag helper that links to the Create action *@
+    @* Hint: <a asp-action="Create">Add New Artist</a> *@
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Songs</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @* TODO: Add a @foreach loop to iterate over Model *@
+        @* For each artist, create a table row with: *@
+        @*   - artist.Name *@
+        @*   - artist.Genre *@
+        @*   - artist.Songs?.Count (number of songs) *@
+        @*   - Links for Details, Edit, and Delete *@
+        @*     Hint: <a asp-action="Details" asp-route-id="@artist.Id">Details</a> *@
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+@* TODO: Add a @model directive for a single Song *@
+@* Hint: @model Lumivate.TrackStack.Models.Song *@
+
+@{
+    ViewData["Title"] = "Add New Song";
+}
+
+<h1>Add New Song</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                @* TODO: Add an input tag helper for Title *@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Duration (seconds)</label>
+                @* TODO: Add an input tag helper for DurationSeconds *@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Artist</label>
+                @* TODO: Add a <select> dropdown for ArtistId *@
+                @* This is a new pattern! You need to create a dropdown from ViewBag.Artists *@
+                @* Here is the HTML structure - you fill in the Razor: *@
+                @*
+                <select asp-for="ArtistId" class="form-select">
+                    <option value="">-- Select an Artist --</option>
+                    @foreach (var artist in ViewBag.Artists)
+                    {
+                        <option value="@artist.Id">@artist.Name</option>
+                    }
+                </select>
+                *@
+            </div>
+            @* TODO: Add a submit button *@
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+@* TODO: Add a @model directive for a List of Song *@
+@* Hint: @model List<Lumivate.TrackStack.Models.Song> *@
+
+@{
+    ViewData["Title"] = "Songs";
+}
+
+<h1>All Songs</h1>
+
+<p>
+    @* TODO: Add an anchor tag helper that links to the Create action *@
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Duration</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @* TODO: Add a @foreach loop to iterate over Model *@
+        @* For each song, create a table row with: *@
+        @*   - song.Title *@
+        @*   - song.Artist?.Name (the artist's name via navigation property) *@
+        @*   - song.DurationSeconds (display as-is, or format as mm:ss for a challenge) *@
+        @*   - Links for Details, Edit, and Delete *@
+    </tbody>
+</table>

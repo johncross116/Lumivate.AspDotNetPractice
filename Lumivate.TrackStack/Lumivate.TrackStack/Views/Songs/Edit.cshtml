@@ -1,0 +1,33 @@
+@* TODO: Add a @model directive for a single Song *@
+@* Hint: @model Lumivate.TrackStack.Models.Song *@
+
+@{
+    ViewData["Title"] = "Edit Song";
+}
+
+<h1>Edit Song</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post">
+            @* TODO: Add a hidden input for the Id *@
+            @* Hint: <input type="hidden" asp-for="Id" /> *@
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                @* TODO: Add an input tag helper for Title *@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Duration (seconds)</label>
+                @* TODO: Add an input tag helper for DurationSeconds *@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Artist</label>
+                @* TODO: Add a <select> dropdown for ArtistId *@
+                @* Same pattern as the Create view - loop through ViewBag.Artists *@
+                @* The current artist should be pre-selected (asp-for handles this) *@
+            </div>
+            @* TODO: Add a submit button *@
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

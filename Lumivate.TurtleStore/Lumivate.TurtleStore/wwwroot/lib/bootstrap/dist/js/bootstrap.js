@@ -1199,7 +1199,7 @@
       this._slide(ORDER_NEXT);
     }
     nextWhenVisible() {
-      // FIXME TODO use `document.visibilityState`
+      // FIXME TTOODDOO use `document.visibilityState`
       // Don't call next when the page isn't visible
       // or the carousel or its parent isn't visible
       if (!document.hidden && isVisible(this._element)) {
@@ -3792,7 +3792,7 @@
   };
   const DefaultType$1 = {
     offset: '(number|null)',
-    // TODO v6 @deprecated, keep it for backwards compatibility reasons
+    // TTOODDOO v6 @deprecated, keep it for backwards compatibility reasons
     rootMargin: 'string',
     smoothScroll: 'boolean',
     target: 'element',

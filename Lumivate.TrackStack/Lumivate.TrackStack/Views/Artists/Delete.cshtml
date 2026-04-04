@@ -1,0 +1,30 @@
+@* TODO: Add a @model directive for a single Artist *@
+@* Hint: @model Lumivate.TrackStack.Models.Artist *@
+
+@{
+    ViewData["Title"] = "Delete Artist";
+}
+
+<h1>Delete Artist</h1>
+
+<div class="alert alert-danger">
+    <h4>Are you sure you want to delete this artist?</h4>
+    <p>This will also remove all songs by this artist!</p>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@* TODO: Display Model.Name *@</dd>
+            <dt class="col-sm-3">Genre</dt>
+            <dd class="col-sm-9">@* TODO: Display Model.Genre *@</dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    @* TODO: Add a hidden input for Model.Id *@
+    @* Hint: <input type="hidden" asp-for="Id" /> *@
+    @* TODO: Add a Delete button and a Cancel link *@
+</form>

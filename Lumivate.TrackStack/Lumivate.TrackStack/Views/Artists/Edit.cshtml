@@ -1,0 +1,27 @@
+@* TODO: Add a @model directive for a single Artist *@
+@* Hint: @model Lumivate.TrackStack.Models.Artist *@
+
+@{
+    ViewData["Title"] = "Edit Artist";
+}
+
+<h1>Edit Artist</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post">
+            @* TODO: Add a hidden input for the Id *@
+            @* Hint: <input type="hidden" asp-for="Id" /> *@
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                @* TODO: Add an input tag helper for Name *@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Genre</label>
+                @* TODO: Add an input tag helper for Genre *@
+            </div>
+            @* TODO: Add a submit button *@
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
