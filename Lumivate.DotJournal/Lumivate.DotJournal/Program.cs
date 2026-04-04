@@ -16,9 +16,14 @@ namespace Lumivate.DotJournal
 				options.UseSqlServer(connectionString));
 			builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-			builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+			// TODO-dotjournal step 7: Note that RequireConfirmedAccount is set to false for local development
+			// In production, you would want this set to true and configure email confirmation
+			builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 			builder.Services.AddControllersWithViews();
+
+			// TODO-dotjournal step 3: Register the JournalEntryService for dependency injection
+			// builder.Services.AddScoped<IJournalEntryService, JournalEntryService>();
 
 			var app = builder.Build();
 
