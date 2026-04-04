@@ -1,4 +1,5 @@
 using Lumivate.DotJournal.Data;
+using Lumivate.DotJournal.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
