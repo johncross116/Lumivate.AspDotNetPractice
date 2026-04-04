@@ -27,6 +27,8 @@ namespace Lumivate.TurtleStore.Data
 	// TODO-checkpoint-6 part A: Add DbSet properties for Orders and OrderItems:
 	//      public DbSet<Order> Orders { get; set; }
 	//      public DbSet<OrderItem> OrderItems { get; set; }
-	//   Then run: dotnet ef migrations add AddOrderTables
-	//   Then run: dotnet ef database update
+	//   Then run the migration commands in the Package Manager Console
+	//   (Tools > NuGet Package Manager > Package Manager Console):
+	//     Add-Migration AddOrderTables
+	//     Update-Database
 }

@@ -9,12 +9,14 @@ namespace Lumivate.DotJournal.Data
 		// TODO-dotjournal step 2: Add a DbSet for JournalEntry
 		//   public DbSet<JournalEntry> JournalEntries { get; set; }
 		//
-		// Then run the following commands in the terminal (from the Lumivate.DotJournal project folder):
-		//   dotnet ef migrations add AddJournalEntries
-		//   dotnet ef database update
+		// Then run the migration commands in the Package Manager Console
+		// (Tools > NuGet Package Manager > Package Manager Console):
+		//   Add-Migration AddJournalEntries
+		//   Update-Database
 		//
 		// TODO-dotjournal step 7: After adding UserId to JournalEntry, create another migration:
-		//   dotnet ef migrations add AddUserIdToJournalEntry
-		//   dotnet ef database update
+		// (Tools > NuGet Package Manager > Package Manager Console):
+		//   Add-Migration AddUserIdToJournalEntry
+		//   Update-Database
 	}
 }
