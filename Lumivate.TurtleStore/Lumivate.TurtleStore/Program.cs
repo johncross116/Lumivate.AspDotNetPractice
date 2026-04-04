@@ -17,10 +17,8 @@ namespace Lumivate.TurtleStore
             // builder.Services.AddScoped<ITurtleService, TurtleService>();
 
             // TODO-checkpoint-6 part B: Register CartService for dependency injection
-            // builder.Services.AddScoped<ICartService, CartService>();
 
             // TODO-checkpoint-6 part C: Register OrderService for dependency injection
-            // builder.Services.AddScoped<IOrderService, OrderService>();
 
             var app = builder.Build();
 
