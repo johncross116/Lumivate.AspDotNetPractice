@@ -16,6 +16,6 @@ namespace Lumivate.TurtleStore.Services
     //   - GetCartTotal(): sum up (Price * Quantity) for all items
     //   - ClearCart(): empty the cart
 
-    // TODO-checkpoint-6 part B: After creating this class, register it in Program.cs:
+    // After creating this class, you will register it in Program.cs during part D:
     //   builder.Services.AddScoped<ICartService, CartService>();
 }

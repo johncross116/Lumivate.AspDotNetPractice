@@ -14,6 +14,6 @@ namespace Lumivate.TurtleStore.Services
     //   - GetOrderById(int id): return the order with the matching Id
     //   - GetAllOrders(): return all orders
 
-    // TODO-checkpoint-6 part C: After creating this class, register it in Program.cs:
+    // After creating this class, you will register it in Program.cs during part D:
     //   builder.Services.AddScoped<IOrderService, OrderService>();
 }
