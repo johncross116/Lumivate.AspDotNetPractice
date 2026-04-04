@@ -1,5 +1,5 @@
-@* TODO-checkpoint-4: Add the @model directive for Order *@
-@* @model Lumivate.TurtleStore.Models.Order *@
+@* TODO-checkpoint-6 part E: Add the @model directive for Order *@
+@* Hint: look at how Details.cshtml uses @model for a single object *@
 
 @{
     ViewData["Title"] = "Order Confirmation";
@@ -7,8 +7,8 @@
 
 <h1>Order Confirmed!</h1>
 
-@* TODO-checkpoint-4: Display the order confirmation details *@
-@* Show the customer name, order date, items, and total. Example: *@
+@* TODO-checkpoint-6 part E: Display the order confirmation details *@
+@* Most of the view is provided below. Uncomment it, then fill in the missing pieces marked with ??? *@
 @*
     <div class="card">
         <div class="card-body">
@@ -34,7 +34,8 @@
                 </tbody>
             </table>
             <p><strong>Total: $@Model.Total</strong></p>
-            <a asp-controller="Turtles" asp-action="Index" class="btn btn-primary">Continue Shopping</a>
+            <!-- TODO-checkpoint-6 part E: Add a "Continue Shopping" link that goes to the Turtles Index page -->
+            <!-- Hint: use an <a> tag with asp-controller and asp-action attributes and class "btn btn-primary" -->
         </div>
     </div>
 *@

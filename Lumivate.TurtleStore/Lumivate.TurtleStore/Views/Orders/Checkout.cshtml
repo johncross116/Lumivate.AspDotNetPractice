@@ -1,4 +1,4 @@
-@* TODO-checkpoint-4: Add the @model directive for Order *@
+@* TODO-checkpoint-6 part E: Add the @model directive for Order *@
 @* @model Lumivate.TurtleStore.Models.Order *@
 
 @{
@@ -7,8 +7,8 @@
 
 <h1>Checkout</h1>
 
-@* TODO-checkpoint-4: Create the checkout form *@
-@* Collect the customer's name and display a summary of the order. Example: *@
+@* TODO-checkpoint-6 part E: Create the checkout form *@
+@* Most of the form is provided below. Uncomment it, then fill in the missing pieces marked with ??? *@
 @*
     <form asp-action="Checkout" method="post">
         <div class="mb-3">
@@ -16,7 +16,7 @@
             <input asp-for="CustomerName" class="form-control" />
             <span asp-validation-for="CustomerName" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-success">Place Order</button>
+        <!-- TODO-checkpoint-6 part E: Add a submit button here with class "btn btn-success" and text "Place Order" -->
         <a asp-controller="Cart" asp-action="Index" class="btn btn-secondary">Back to Cart</a>
     </form>
 *@

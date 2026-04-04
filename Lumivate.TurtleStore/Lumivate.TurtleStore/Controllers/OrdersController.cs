@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lumivate.TurtleStore.Controllers
 {
-    // TODO-checkpoint-4: Create the OrdersController class
+    // TODO-checkpoint-6 part E: Create the OrdersController class
     // This controller should inherit from Controller.
     // It should accept IOrderService and ICartService via constructor injection.
     //

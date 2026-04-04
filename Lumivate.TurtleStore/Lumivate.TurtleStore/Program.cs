@@ -13,9 +13,13 @@ namespace Lumivate.TurtleStore
             // builder.Services.AddDbContext<TurtleStoreContext>(options =>
             //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // TODO-checkpoint-4: Register your services for dependency injection here
+            // TODO-checkpoint-4: Register TurtleService for dependency injection here
             // builder.Services.AddScoped<ITurtleService, TurtleService>();
+
+            // TODO-checkpoint-6 part B: Register CartService for dependency injection
             // builder.Services.AddScoped<ICartService, CartService>();
+
+            // TODO-checkpoint-6 part C: Register OrderService for dependency injection
             // builder.Services.AddScoped<IOrderService, OrderService>();
 
             var app = builder.Build();

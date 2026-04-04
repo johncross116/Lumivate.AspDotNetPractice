@@ -2,7 +2,7 @@ using Lumivate.TurtleStore.Models;
 
 namespace Lumivate.TurtleStore.Services
 {
-    // TODO-checkpoint-4: Create the CartService class that implements ICartService
+    // TODO-checkpoint-6 part B: Create the CartService class that implements ICartService
     //
     // This service manages the shopping cart. It should depend on ITurtleService
     // (injected via the constructor) to look up turtle details when adding items.
@@ -16,6 +16,6 @@ namespace Lumivate.TurtleStore.Services
     //   - GetCartTotal(): sum up (Price * Quantity) for all items
     //   - ClearCart(): empty the cart
 
-    // TODO-checkpoint-4: After creating this class, register it in Program.cs:
+    // TODO-checkpoint-6 part B: After creating this class, register it in Program.cs:
     //   builder.Services.AddScoped<ICartService, CartService>();
 }

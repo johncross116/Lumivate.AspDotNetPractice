@@ -2,7 +2,7 @@ using Lumivate.TurtleStore.Models;
 
 namespace Lumivate.TurtleStore.Services
 {
-    // TODO-checkpoint-4: Create the OrderService class that implements IOrderService
+    // TODO-checkpoint-6 part C: Create the OrderService class that implements IOrderService
     //
     // This service manages customer orders.
     // Use a private static List<Order> as an in-memory order store.
@@ -14,6 +14,6 @@ namespace Lumivate.TurtleStore.Services
     //   - GetOrderById(int id): return the order with the matching Id
     //   - GetAllOrders(): return all orders
 
-    // TODO-checkpoint-4: After creating this class, register it in Program.cs:
+    // TODO-checkpoint-6 part C: After creating this class, register it in Program.cs:
     //   builder.Services.AddScoped<IOrderService, OrderService>();
 }

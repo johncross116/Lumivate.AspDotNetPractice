@@ -22,7 +22,7 @@ namespace Lumivate.TurtleStore.Controllers
     //     Remove the CartItem with the matching TurtleId
     //     Redirect to the Cart Index page
 
-    // TODO-checkpoint-4: Refactor this controller to accept ICartService via constructor injection
+    // TODO-checkpoint-6 part D: Refactor this controller to accept ICartService via constructor injection
     //   - Remove the static list
     //   - Call _cartService methods instead
 }

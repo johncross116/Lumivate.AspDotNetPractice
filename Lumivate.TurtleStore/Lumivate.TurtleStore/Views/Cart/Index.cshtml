@@ -8,7 +8,8 @@
 <h1>Shopping Cart</h1>
 
 @* TODO-checkpoint-2: Display the cart items *@
-@* Show each item's turtle name, quantity, and price. Example: *@
+@* TODO-checkpoint-6 part D: After refactoring CartController to use ICartService, update this view. *@
+@* Most of the view is provided below. Uncomment it, then fill in the missing pieces marked with ??? *@
 @*
     @if (!Model.Any())
     {
@@ -33,15 +34,16 @@
                         <td>@item.Quantity</td>
                         <td>$@(item.Turtle.Price * item.Quantity)</td>
                         <td>
-                            <form asp-action="Remove" method="post">
-                                <input type="hidden" name="turtleId" value="@item.TurtleId" />
-                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                            </form>
+                            <!-- TODO-checkpoint-6 part D: Add a Remove button here -->
+                            <!-- It should be a <form> that posts to the Remove action with a hidden turtleId field -->
+                            <!-- Hint: look at how the Delete button works on the Turtles Index page -->
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
         <p><strong>Total: $@Model.Sum(i => i.Turtle.Price * i.Quantity)</strong></p>
+        <!-- TODO-checkpoint-6 part D: Add a Checkout link here -->
+        <!-- It should link to the Orders controller's Checkout action with class "btn btn-success" -->
     }
 *@

@@ -1,4 +1,4 @@
-// TODO-checkpoint-5: Create unit tests for CartService using xUnit
+// TODO-checkpoint-6 part F: Create unit tests for CartService using xUnit
 //
 // 1. Add the following using statements:
 //    using Lumivate.TurtleStore.Models;
@@ -77,5 +77,5 @@
 
 namespace Lumivate.TurtleStore.Tests
 {
-    // TODO-checkpoint-5: Uncomment and complete the test class above
+    // TODO-checkpoint-6 part F: Uncomment and complete the test class above
 }
