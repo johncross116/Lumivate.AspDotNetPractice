@@ -55,3 +55,5 @@ nunit-*.xml
 /Lumivate.TurtleStore/.vs
 /Lumivate.TrackStack/.vs/Lumivate.TrackStack.slnx
 /Lumivate.DotJournal/.vs/Lumivate.DotJournal.slnx
+/Lumivate.DotJournal/.vs
+/Lumivate.TrackStack/.vs/ProjectEvaluation
